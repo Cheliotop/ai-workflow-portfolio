@@ -1,5 +1,7 @@
 # AI Workflow & Operations Portfolio
 
+[![Verify public demo](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml/badge.svg)](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml)
+
 **Sergio Hoeckh · practical workflow design, AI-assisted implementation, QA, documentation, and handoff.**
 
 I turn unclear operational problems into structured systems that another person can understand, test, and use.
