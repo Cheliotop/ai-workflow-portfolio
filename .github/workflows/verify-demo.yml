@@ -1,0 +1,24 @@
+name: Verify public demo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run ContaBot Mini tests
+        working-directory: demo/contabot-mini
+        run: python -m unittest discover -s tests -v
+      - name: Exercise review workflow
+        working-directory: demo/contabot-mini
+        run: python contabot_demo.py sample-data/sample-invoice.xml --decision approve

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rDE>
+  <DE Id="01800123456001001000012342026010112345678901">
+    <gTimb><dNumTim>12345678</dNumTim></gTimb>
+    <dTipoDoc>1</dTipoDoc>
+    <dNumDoc>001-001-0001234</dNumDoc>
+    <dFeEmiDE>2026-07-13T09:30:00</dFeEmiDE>
+    <dMoneda>PYG</dMoneda>
+    <gEmis>
+      <dRucEm>80012345-6</dRucEm>
+      <dNomEmi>Proveedor Demo S.A.</dNomEmi>
+    </gEmis>
+    <gRecp>
+      <dNomRec>Cliente de Ejemplo</dNomRec>
+    </gRecp>
+    <gCamItem>
+      <dCodInt>DEMO-01</dCodInt>
+      <dDesProSer>Servicio de ejemplo</dDesProSer>
+      <dCantProSer>1</dCantProSer>
+      <dPUniProSer>100000</dPUniProSer>
+      <dTotOpeItem>110000</dTotOpeItem>
+      <dIVAItem>10000</dIVAItem>
+      <iAfecIVA>1</iAfecIVA>
+      <dTasaIVA>10</dTasaIVA>
+    </gCamItem>
+    <gTotSub>
+      <dSubGrav>100000</dSubGrav>
+      <dTotIVA>10000</dTotIVA>
+      <dTotGralOpe>110000</dTotGralOpe>
+    </gTotSub>
+  </DE>
+</rDE>

@@ -1,0 +1,8 @@
+docs/*.html
+.DS_Store
+.env
+.env.*
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
