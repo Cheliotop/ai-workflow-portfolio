@@ -2,9 +2,9 @@
 
 [![Verify public demo](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml/badge.svg)](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml)
 
-**Sergio Hoeckh · practical workflow design, AI-assisted implementation, QA, documentation, and handoff.**
+**What this proves:** I turn unclear operational problems into workflows that are tested, documented, and handed off — not claimed. Three real projects, one runnable demo, and verification notes instead of assurances.
 
-I turn unclear operational problems into structured systems that another person can understand, test, and use.
+**Sergio Hoeckh** · practical workflow design, AI-assisted implementation, QA, documentation, and handoff.
 
 ![Portfolio overview](assets/portfolio-overview.svg)
 
