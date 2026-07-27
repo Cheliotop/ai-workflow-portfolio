@@ -1,4 +1,4 @@
-# Case Study 3 — PHC Drilling Monitoring System / Audit, Hardening and Handoff Program
+# Case Study 2 — PHC Drilling Monitoring System / Audit, Hardening and Handoff Program
 
 ![PHC release and handoff flow](../assets/phc-release-flow.svg)
 

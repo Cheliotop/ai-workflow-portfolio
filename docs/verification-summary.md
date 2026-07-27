@@ -7,9 +7,9 @@ This summary is written for employer-facing portfolio honesty. It separates veri
 
 ## Final public presentation set
 
-1. ContaBot
-2. German Teaching Platform
-3. PHC Monitoring System
+1. German / Multi-Language Teaching Platform
+2. PHC Drilling Monitoring System
+3. Public review workflow demo (standalone, fake data)
 
 Excluded from this presentation set:
 
@@ -17,33 +17,11 @@ Excluded from this presentation set:
 - private/internal business material — not suitable for raw public exposure;
 - raw project repositories — remain private because they contain credentials, environment files, client/business details, or internal operating material.
 
-## ContaBot
+## Public review workflow demo
 
-Source checked in the private local project workspace.
+A deliberately small fake-data workflow demonstration lives under `demo/review-workflow-mini/`. It is a standalone worked example, not an extract of any client system.
 
-Verification command:
-
-```text
-PYTHONDONTWRITEBYTECODE=1 CONTABOT_RUN_LIVE_POSTGRES_SMOKE=0 python3.11 -m pytest -q -p no:cacheprovider tests
-```
-
-Result:
-
-```text
-1059 passed, 2 skipped, 135 subtests passed in 58.07s
-```
-
-Verdict:
-
-Strongest current technical proof. Good portfolio candidate for workflow design, validation, review states, QA, documentation, and auditability.
-
-Limitations:
-
-Live Postgres and browser UI checks were not included in the latest verification run.
-
-### Public ContaBot Mini demo
-
-The public repository now includes a deliberately small fake-data workflow demonstration under `demo/contabot-mini/`. It is a separate educational illustration, not a published copy of the private application.
+Re-verified 2026-07-27 after the demo was renamed from its earlier project-specific name.
 
 Verification command:
 
@@ -54,7 +32,7 @@ python3 -m unittest discover -s tests -v
 Result:
 
 ```text
-5 tests passed
+Ran 5 tests — OK
 ```
 
 The tests cover XML field extraction, explicit review routing, preservation of initial processing status after review, append-only decisions, invalid-action rejection, and bounded audit export.
@@ -62,7 +40,7 @@ The tests cover XML field extraction, explicit review routing, preservation of i
 End-to-end demonstration command:
 
 ```text
-python3 contabot_demo.py sample-data/sample-invoice.xml --decision approve
+python3 review_demo.py sample-data/sample-invoice.xml --decision approve
 ```
 
 Verified output state:
@@ -74,6 +52,8 @@ review_state: approved
 workflow_state: review_approved
 decision_count: 1
 ```
+
+These same two commands run in CI on every push, so the badge on the main README reflects their live state rather than this recorded run.
 
 ## German Teaching Platform
 
@@ -160,10 +140,12 @@ Single-client system, small deployment scale, private repository. Evidence is dr
 
 ## Employer-facing conclusion
 
-The best current 3-project portfolio story is:
+The presentation set is deliberately two systems plus one runnable demo:
 
-- ContaBot = strongest verified technical workflow/QA proof.
-- German Teaching Platform = largest AI-assisted full-stack/workflow product proof.
-- PHC = practical mobile/backend implementation and release-handoff proof.
+- German / Multi-Language Teaching Platform = largest AI-assisted full-stack/workflow product proof.
+- PHC Drilling Monitoring System = strongest delivery-and-operations proof: automated E2E coverage, release cadence, production data protection, and clean client handoff.
+- Review workflow demo = the only executable artifact, standing on its own rather than representing a client system.
 
-Together they support Sergio's positioning as an AI Workflow Operations Builder better than specialized experiments or private business material.
+A third client project was previously listed here and has been withdrawn from the presentation set. It was verified and real, but a portfolio item is only an asset if it can be discussed in depth on demand — depth of ownership matters more than count.
+
+Together these support Sergio's positioning as an AI Workflow Operations Builder better than specialized experiments or private business material.

@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from contabot_demo import (
+from review_demo import (
     add_review_decision,
     build_export,
     parse_invoice,

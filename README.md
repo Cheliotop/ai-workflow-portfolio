@@ -2,7 +2,7 @@
 
 [![Verify public demo](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml/badge.svg)](https://github.com/Cheliotop/ai-workflow-portfolio/actions/workflows/verify-demo.yml)
 
-**What this proves:** I turn unclear operational problems into workflows that are tested, documented, and handed off — not claimed. Three real projects, one runnable demo, and verification notes instead of assurances.
+**What this proves:** I turn unclear operational problems into workflows that are tested, documented, and handed off — not claimed. Two real client systems, one runnable demo, and verification notes instead of assurances.
 
 **Sergio Hoeckh** · practical workflow design, AI-assisted implementation, QA, documentation, and handoff.
 
@@ -12,20 +12,19 @@
 
 | Project | Evidence | Explore |
 |---|---|---|
-| **ContaBot** | Deterministic XML review workflow; 1,059 tests passed, 2 skipped, 135 subtests passed | [Case study](case-studies/01-contabot-review-workflow.md) · [Run the public demo](demo/contabot-mini/) · [Diagram](assets/contabot-workflow.svg) |
-| **German Teaching Platform** | 53-page production build; 212 tests passed with 11 documented contract-drift failures | [Case study](case-studies/02-german-teaching-platform.md) · [Workflow map](assets/german-platform-workflow.svg) |
-| **PHC Drilling Monitoring System** | 9 automated end-to-end mobile test flows; 5 signed releases in 9 days; nightly production backup automation; staged 6-pass hardening program | [Case study](case-studies/03-phc-monitoring-system.md) · [Release-flow map](assets/phc-release-flow.svg) |
+| **German / Multi-Language Teaching Platform** | Complete A1–B2 German curriculum; one engine serving 20 languages including non-Latin scripts; 53-page production build | [Case study](case-studies/01-german-teaching-platform.md) · [Workflow map](assets/german-platform-workflow.svg) |
+| **PHC Drilling Monitoring System** | 9 automated end-to-end mobile test flows; 5 signed releases in 9 days; nightly production backup automation; staged 6-pass hardening program | [Case study](case-studies/02-phc-monitoring-system.md) · [Release-flow map](assets/phc-release-flow.svg) |
 
 ## Runnable proof
 
-The [ContaBot Mini demo](demo/contabot-mini/) uses fake XML and only the Python standard library to demonstrate:
+Client work is private. This part isn't — the [review workflow demo](demo/review-workflow-mini/) uses fake data and only the Python standard library, so you can execute it yourself in under a minute:
 
 `parse → validate → route to review → append decision → export audit summary`
 
 ```bash
-cd demo/contabot-mini
+cd demo/review-workflow-mini
 python3 -m unittest discover -s tests -v
-python3 contabot_demo.py sample-data/sample-invoice.xml --decision approve
+python3 review_demo.py sample-data/sample-invoice.xml --decision approve
 ```
 
 GitHub Actions runs the tests and exercises the workflow on every push.

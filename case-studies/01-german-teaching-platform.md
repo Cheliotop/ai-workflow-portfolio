@@ -1,4 +1,4 @@
-# Case Study 2 — German Teaching Platform / AI-Assisted Teaching Operations
+# Case Study 1 — German Teaching Platform / AI-Assisted Teaching Operations
 
 ![German Teaching Platform workflow](../assets/german-platform-workflow.svg)
 

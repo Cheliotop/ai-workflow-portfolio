@@ -16,9 +16,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run ContaBot Mini tests
-        working-directory: demo/contabot-mini
+      - name: Run review workflow tests
+        working-directory: demo/review-workflow-mini
         run: python -m unittest discover -s tests -v
       - name: Exercise review workflow
-        working-directory: demo/contabot-mini
-        run: python contabot_demo.py sample-data/sample-invoice.xml --decision approve
+        working-directory: demo/review-workflow-mini
+        run: python review_demo.py sample-data/sample-invoice.xml --decision approve

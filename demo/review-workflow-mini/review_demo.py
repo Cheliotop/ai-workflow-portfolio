@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Public-safe miniature of an auditable XML review workflow.
+"""A small, runnable example of an auditable document review workflow.
 
-This demo is intentionally small and uses fake data. It illustrates workflow
-invariants from the private ContaBot project; it is not tax or compliance software.
+Deliberately tiny, fake data only, standard library only. It demonstrates the
+invariants I hold to whenever automation makes a decision a human is
+accountable for: every decision is recorded, nothing is silently overwritten,
+and the state of any record is always explainable from its history.
+
+This is a worked example, not tax or compliance software.
 """
 
 from __future__ import annotations
