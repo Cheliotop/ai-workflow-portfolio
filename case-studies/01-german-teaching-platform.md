@@ -1,4 +1,4 @@
-# Case Study 1 — German Teaching Platform / AI-Assisted Teaching Operations
+# Case Study 1 — Multi-Language Teaching Platform / AI-Assisted Teaching Operations
 
 ![German Teaching Platform workflow](../assets/german-platform-workflow.svg)
 
@@ -12,69 +12,78 @@ It's the operations layer around teaching, not a pile of AI-generated worksheets
 
 ## Problem
 
-A German teaching platform needs more than individual lesson pages. It needs a structured operating system for students, curriculum levels, lesson generation, progress tracking, review workflows, teaching materials, and exports.
+AI will happily generate a language lesson. That is not the problem worth solving.
 
-The hard part is keeping the system useful for real teaching work instead of becoming a scattered collection of AI-generated text.
+The problem is that a tutor teaching a dozen students needs to know where each one is in a curriculum, what they struggled with last week, what to teach next and why, and to produce materials for it — every week, for every student, forever. Generated lessons that ignore that context are worksheets, not teaching.
+
+So the hard part was never the generation. It was building the structure that makes generation useful: a curriculum with a defined order, a record of where each student sits within it, and enough state that the next lesson follows from the last one.
 
 ## My role
 
-I used AI-assisted development and workflow structuring to help build and organize a full-stack teaching operations platform. The focus was not only code, but the system around it: curriculum structure, student workflows, content validation, documentation, and deployment readiness.
+I designed and built the system, AI-assisted throughout, and did the work that makes AI assistance safe to depend on: deciding the curriculum's structure, defining what correct looks like, and verifying the result against something other than my own opinion.
+
+The security work in this case study is a fair example. I did not assess my own configuration and declare it good — I ran Supabase's security advisor, took the 14 findings it returned, fixed them in a tracked migration, and re-ran it to confirm zero. The tool disagreeing with me is the point.
 
 ## Workflow/system designed
 
-The project includes:
+**One engine, twenty languages.** The curriculum, lesson generation, student tracking and export flows are language-agnostic; a language pack plus a student's chosen explanation language configures the whole system. German is built out completely as the flagship; the other nineteen are generated through the same process. Non-Latin scripts — Japanese, Chinese, Korean, Arabic, Russian, Hindi — run on the identical spine rather than a special case.
 
-- student management;
-- curriculum roadmap structure;
-- AI-assisted lesson generation;
-- lesson review workflows;
-- teaching materials by level/topic;
-- Google Docs export flow;
-- authentication and API routes;
-- Supabase/database planning;
-- deployment and validation documentation.
+**A curriculum with a spine, not a pile of topics.** A master sequence of 140 lessons runs Complete Beginner through B2, with each student's position tracked against it and teaching materials and exercises linked to specific lessons in the sequence.
+
+**Generation as a queued job, not a request.** Lesson generation runs through a job table with status and error tracking rather than inline in a request, so a slow or failed AI call degrades one job instead of a page load.
+
+**Security designed in, then checked by something other than me.** Row Level Security on every table, JWT auth with token versioning for revocation, and per-teacher scoping.
 
 ## Tools used
 
-- Next.js
-- React
-- TypeScript
-- Supabase
-- Vitest
-- Google APIs
-- AI APIs / AI-assisted workflow design
-- Netlify deployment configuration
+- Next.js · React · TypeScript
+- Supabase / Postgres with Row Level Security
+- Anthropic Claude for lesson planning and teaching-script generation
+- Jest for unit and route tests
+- Google APIs for document export
+- GitHub Actions for scheduled off-site backups
 
 ## Verification evidence
 
-Latest local verification after dependency install:
+Infrastructure verified directly against the live Supabase project on 2026-07-27.
 
-Production build:
+**Row Level Security on 100% of tables — 25 of 25.** Not a sample: every table in the public schema.
 
-```text
-Compiled successfully
-53 static pages generated
-Type checking completed during build
-```
-
-Test suite:
+**Supabase's own security advisor returns zero findings.** It initially reported 14 warnings, all one class — `function_search_path_mutable`, meaning the caller could influence which schema an unqualified name resolved to inside those functions. I pinned `search_path` on all 14 in a tracked migration and re-ran the advisor:
 
 ```text
-212 passed
-11 failed
-223 total
+{"lints":[]}
 ```
 
-The 11 failures are concentrated in student API route tests where test expectations no longer match current route/schema behavior. This aligns with existing project documentation noting student API fixture/schema drift.
+**The schema is documented in the database itself**, not only in a README:
+
+```text
+curriculum_sequence   "Master sequence of 140 lessons from Complete Beginner to B2"
+student_lesson_progress
+                      "Tracks each student progress through the 140-lesson sequence"
+ai_lesson_plans       "AI-generated personalized lesson plans using Claude Opus"
+teaching_materials    "Comprehensive teaching guides for every curriculum topic"
+document_exports      "Tracks all document exports with versioning support"
+```
+
+**Backups now exist.** The project runs on a plan with no point-in-time recovery, and its dashboard reported no backups at all. It now has a nightly off-site `pg_dump` workflow that fails loudly rather than producing a green run over an empty file.
+
+**A production build generates 53 static pages** with type checking passing during the build.
 
 ## Business value
 
-This project shows my ability to coordinate a larger AI-assisted software/workflow build: many routes, many docs, curriculum logic, review flow, exports, and validation reports. For employers, the strongest signal is not “I am a senior full-stack engineer,” but that I can help turn a complex workflow idea into a structured platform with documentation, tests, and deployment thinking.
+This is the larger of my two systems and it shows the part of AI-assisted building that actually decides whether the result is usable: giving the AI enough structure to be useful, and enough verification to be trusted.
+
+The strongest signal here is not "I can build a full-stack app." It is that when a tool told me fourteen things were wrong with my security configuration, I fixed all fourteen and re-ran it — and that when the database turned out to have no backups on a plan with no recovery, I treated that as the emergency it was rather than a nice-to-have.
 
 ## Honest limitations
 
-The app should not be published raw because local environment files and docs contain private credentials/configuration details. It needs a cleanup pass before any source code is public. Some tests need updating to match the current student API schema.
+**The database is empty.** The schema is deployed and secured, but no curriculum or student data is loaded in it. This platform is built and hardened, not running with content — and I would rather say that plainly than imply an active user base that does not exist.
+
+The repository stays private: environment files and documentation contain credentials and configuration.
+
+The test suite is not quoted here. An earlier version of this case study claimed a specific pass/fail count; that number predates a substantial rewrite of the project and I have not re-run the suite since, so publishing it would be asserting something I have not checked. The infrastructure figures above are all from direct inspection on the date given.
 
 ## Next improvement
 
-Resolve the student API test-contract drift, then create a public-safe walkthrough using synthetic student and lesson data.
+Seed the curriculum into the live project and run a real pilot with actual students, then re-verify the test suite and publish the number. Once there is data, promote the backup workflow's empty-rows warning to a hard failure — an empty dump will mean something is broken rather than something is unstarted.

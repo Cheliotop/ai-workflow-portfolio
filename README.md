@@ -12,7 +12,7 @@
 
 | Project | Evidence | Explore |
 |---|---|---|
-| **German / Multi-Language Teaching Platform** | Complete A1–B2 German curriculum; one engine serving 20 languages including non-Latin scripts; 53-page production build | [Case study](case-studies/01-german-teaching-platform.md) · [Workflow map](assets/german-platform-workflow.svg) |
+| **Multi-Language Teaching Platform** | Row Level Security on 25 of 25 tables, zero findings from Supabase's security advisor; 140-lesson A1–B2 curriculum spine; one engine serving 20 languages | [Case study](case-studies/01-german-teaching-platform.md) · [Workflow map](assets/german-platform-workflow.svg) |
 | **PHC Drilling Monitoring System** | 9 automated end-to-end mobile test flows; 5 signed releases in 9 days; nightly production backup automation; staged 6-pass hardening program | [Case study](case-studies/02-phc-monitoring-system.md) · [Release-flow map](assets/phc-release-flow.svg) |
 
 ## Runnable proof
