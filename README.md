@@ -14,7 +14,7 @@
 |---|---|---|
 | **ContaBot** | Deterministic XML review workflow; 1,059 tests passed, 2 skipped, 135 subtests passed | [Case study](case-studies/01-contabot-review-workflow.md) · [Run the public demo](demo/contabot-mini/) · [Diagram](assets/contabot-workflow.svg) |
 | **German Teaching Platform** | 53-page production build; 212 tests passed with 11 documented contract-drift failures | [Case study](case-studies/02-german-teaching-platform.md) · [Workflow map](assets/german-platform-workflow.svg) |
-| **PHC Monitoring System** | Android APK artifacts, release/QA documentation, backend and operator handoff planning | [Case study](case-studies/03-phc-monitoring-system.md) · [Release-flow map](assets/phc-release-flow.svg) |
+| **PHC Drilling Monitoring System** | 9 automated end-to-end mobile test flows; 5 signed releases in 9 days; nightly production backup automation; staged 6-pass hardening program | [Case study](case-studies/03-phc-monitoring-system.md) · [Release-flow map](assets/phc-release-flow.svg) |
 
 ## Runnable proof
 

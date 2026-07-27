@@ -120,37 +120,43 @@ Limitations:
 
 Raw repo should stay private because environment/config files and docs contain sensitive material. Some tests need updating to current student API behavior.
 
-## PHC Monitoring System
+## PHC Drilling Monitoring System
 
-Documentation and release evidence checked read-only in the private local project workspace.
+Re-verified read-only on 2026-07-27. The earlier check (2026-07-13) was based on June artifacts and materially understated the project; this section replaces it.
 
 Latest instruction:
 
-Do not touch PHC. PHC was checked read-only only.
+Do not touch PHC. PHC is checked read-only only — no files edited, no dependencies installed, no builds run.
 
 Read-only evidence found:
 
-- project structure exists for React Native mobile app, Node backend, releases, docs, assets;
-- multiple APK artifacts exist;
-- release, QA tunnel, backend deployment, direct APK handoff, and production checklist docs exist;
-- package scripts exist for mobile app and backend;
-- prior docs record successful TypeScript/lint/build/backend smoke checks and signed QA APK creation.
+- three coordinated parts: React Native field app, web admin console, Supabase/Postgres backend;
+- 9 automated end-to-end mobile test flows (Maestro), covering both admin and operator roles, named by business workflow;
+- 35 unit/screen test files;
+- five signed Android release versions between 2026-07-18 and 2026-07-26, plus local-QA builds pointed at a local Supabase instance;
+- a scheduled GitHub Actions workflow performing a nightly off-site `pg_dump` of roles, schema and data, with a fail-fast credential check and a non-empty-dump verification step;
+- a staged audit-and-remediation program (passes 1, 1.5, 2, 3, 4, 5) with per-pass records and a consolidated pass log;
+- infrastructure option research with costs — local Paraguay hosting, AWS Lightsail, Oracle Cloud, on-premises office PC;
+- handoff documentation: direct APK handoff, local QA setup, server-PC QA handoff, E2E test plan, client readiness audit, final handoff;
+- ongoing audit trail — architecture and workflow findings documents (2026-07-25) driving a data-layer refactor, with findings tracked to closure by ID.
 
-Important APK artifacts found:
+Latest release artifacts found:
 
 ```text
-releases/PHC_2026-06-20_release-qa-tunnel.apk
-releases/PHC_2026-06-20_release-unsigned.apk
-releases/PHC_2026-06-19-debug.apk
+releases/PHC_2026-07-18_release-v2.0.12-vc14.apk
+releases/PHC_2026-07-19_release-v2.0.13-vc15.apk
+releases/PHC_2026-07-19_release-v2.0.14-vc16.apk
+releases/PHC_2026-07-20_localQa-v2.0.15-vc17-local-supabase.apk
+releases/PHC_2026-07-26_release-v2.0.16-vc18.apk
 ```
 
 Verdict:
 
-Strong implementation/handoff proof. Good portfolio candidate for mobile/backend coordination, Android APK delivery, deployment thinking, and QA/release documentation.
+The strongest operations proof in this portfolio. It evidences the full delivery discipline — automated E2E coverage, release cadence, production data protection, staged hardening, documented infrastructure tradeoffs, and clean client handoff.
 
 Limitations:
 
-Do not publicly claim production deployment unless stable backend + fresh real-device QA are verified. Present as mobile/backend monitoring implementation with release artifacts and handoff planning.
+Single-client system, small deployment scale, private repository. Evidence is drawn from structure, test flows, release artifacts, automation and documentation — not from published source. No independent third-party audit, load testing at scale, or formal uptime measurement.
 
 ## Employer-facing conclusion
 
