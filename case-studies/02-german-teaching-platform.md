@@ -2,6 +2,14 @@
 
 ![German Teaching Platform workflow](../assets/german-platform-workflow.svg)
 
+## In plain terms
+
+A private language tutor spends more time on preparation and admin than on actual teaching — planning every lesson, remembering where each student left off, building exercises, writing progress notes.
+
+This platform absorbs that work. It holds a complete A1–B2 German curriculum, generates lesson plans and exercises tuned to where a specific student actually is, and tracks their progress across sessions. The same engine runs twenty languages, including non-Latin scripts — Japanese, Chinese, Korean, Arabic, Russian, Hindi — with German built out as the finished flagship and the rest generated through the same process.
+
+It's the operations layer around teaching, not a pile of AI-generated worksheets.
+
 ## Problem
 
 A German teaching platform needs more than individual lesson pages. It needs a structured operating system for students, curriculum levels, lesson generation, progress tracking, review workflows, teaching materials, and exports.

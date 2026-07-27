@@ -2,6 +2,14 @@
 
 ![PHC release and handoff flow](../assets/phc-release-flow.svg)
 
+## In plain terms
+
+A water-well drilling company ran on paper. Every shift, a crew wrote down how deep they drilled and what materials they burned through, and those sheets had to travel back to the office to be typed up. Often they didn't — and the office found out days later that a well was behind or a material had run out.
+
+Now the crew records it on a phone at the well site, including where there's no signal, and it syncs when they're back in range. The office sees project progress live, approves material orders as they come in, and receives a signed technical report when a well is finished.
+
+The interesting work wasn't the screens. It was proving the thing was correct before real crews depended on it, and making sure it keeps running after I hand it over.
+
 ## Problem
 
 A water-well drilling contractor needed to replace paper shift reports with a system operators could actually use in the field: crews record drilling progress and material usage on Android devices, often with poor connectivity, while the office needs live project status, material orders, and signed closure reports.

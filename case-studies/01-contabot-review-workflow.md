@@ -2,6 +2,14 @@
 
 ![ContaBot review workflow](../assets/contabot-workflow.svg)
 
+## In plain terms
+
+In Paraguay, business invoices are filed electronically with the tax authority as XML files. A company receives hundreds of them, and before any of it reaches the books, someone has to confirm each invoice is legitimate.
+
+ContaBot does that checking. It reads each invoice, verifies the tax IDs and the government authorization numbers are real and correctly formed, and sorts the results into two piles: clean, and needs-a-human. Every decision it makes is written down permanently, so months later you can prove exactly why any single invoice was approved or flagged.
+
+The point isn't speed. It's that an accountant can trust the pile marked "clean" and can always answer the question "why did this one go through?"
+
 **Public proof:** [Run the fake-data ContaBot Mini demo](../demo/contabot-mini/) to inspect the workflow and execute its tests without credentials or private accounting data.
 
 ## Problem
